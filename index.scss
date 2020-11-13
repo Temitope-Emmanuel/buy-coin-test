@@ -149,12 +149,17 @@ main{
         top:0;
         background-color: white;
         display: flex;
-        border-bottom:1px solid #eaecef;
+        @include mediaMd{
+            border-bottom:1px solid #eaecef;
+        }
         & .mini-detail{
-            display: flex;
             opacity: 0;
             align-items: center;
             justify-content: center;
+            display:none;
+            @include mediaMd{
+                display: flex;
+            }
             & > h6{
                 opacity:.8;
                 margin: 0;
@@ -169,9 +174,12 @@ main{
             }
         }
         & > div:nth-child(2){
-            display: flex;
             flex:5;
             align-items: center;
+            display:none;
+            @include mediaMd{
+                display:flex;
+            }
             & p{
                 font: size 0.875rem;
             }
@@ -195,6 +203,7 @@ main{
                     background: rgba(0,0,0,.2);
                 }
             }
+            
         }
     }
 }
@@ -202,6 +211,10 @@ div.main-container{
     display: flex;
     margin-right:10%;
     margin-left: 3%;
+    flex-direction:column;
+    @include mediaMd{
+        flex-direction:row        
+    }
     & > div:first-child{
         flex:2;
         // width: 25%;
@@ -293,10 +306,18 @@ ul{
 }
 .detail-container{
     display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    @include mediaMd{
+        align-items: flex-start;
+        flex-direction: column;
+        
+    }
     .image-container{
         margin-top: -35px;
+        margin-right: 12px;
+        @include mediaMd{
+            margin-right: 0;
+        }
         & > div{
             position: relative;
             & > img {
@@ -333,10 +354,59 @@ ul{
             font-weight: 300;
             color:#586069
         }
-        & > *:last-child{
+        & > p{
+            display: inline;
             font-size: 1rem;
             font-weight: 400;
             color: #24292e
+        }
+        .extraOwner-detail{
+            display: flex;
+            flex-direction: column;
+            margin:1rem 0;
+            & > button{
+                background-color: #f3f4f6;
+                transition-duration: .1s;
+                padding: 5px 16px;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 20px;
+                // vertical-align: middle;
+                border: 1px solid #1b1f2326;
+                color:#24292e;
+                border-radius: 6px;
+                margin-bottom: 1rem;
+            }
+            & > div:nth-child(2){
+                display: flex;
+                & svg,i{
+                    opacity: .5;
+                }
+                & > p{
+                    text-align: center;
+                }
+                align-items: center;
+                & > *{
+                    display: flex;
+                    align-items: center;
+                    margin: .4rem;
+                    & *:nth-child(2){
+                        margin:0 .3rem
+                    }
+                    & >*:last-child{
+                        opacity:.5
+                    }
+                }
+            }
+            & > *:last-child{
+                display: flex;
+                align-items: flex-end;
+                & svg,i{
+                    opacity: .5;
+                    margin-right: .3rem;
+                }
+                
+            }
         }
     }
 }
