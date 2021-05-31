@@ -110,7 +110,7 @@ const getApiRequest = (username = "Temitope-Emmanuel") => {
   fetch(url, {
     method: "POST",
     headers: {
-      Authorization: `Bearer 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`,
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     },
     body: JSON.stringify({
       query: `{
