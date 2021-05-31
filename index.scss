@@ -41,6 +41,14 @@ h1,h2,h3,h4,p{
 
 }
 
+img#submit-form:hover {
+    cursor: pointer;
+}
+#input-field {
+    outline:none 
+}
+
+
 nav {
   display: flex;
   background-color: #24292e;
